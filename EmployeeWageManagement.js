@@ -1,26 +1,33 @@
-console.log("welcome to employee wage:");
-console.log("Uc2: Calculating Wages for employee");
-const IS_PART_TIME=1;
-const IS_FULL_TIME=2;
-const PART_TIME_HOURS=4;
-const FULL_TIME_HOURS=8;
-const WAGE_PER_HOUR=20;
-let empHrs=0;
-//UC3 :declearing a functions for getting working hours
-function getWorkingHors(empCheck){
-    switch (empCheck) {
+//UC4_Calculating Wages for a month
+const IS_ABSENT =0;
+const IS_PART_TIME =1;
+const IS_FULL_TIME =2;
+const PART_TIME_HRS =4;
+const FULL_TIME_HRS =8;
+const WAGE_PER_HRS =20;
+let emphr = 0;
+function GetWorkingHour(checkStatus)
+{
+    switch(checkStatus)
+    {
         case IS_PART_TIME:
-            console.log("Employee is part time")
-            return PART_TIME_HOURS;
+            return PART_TIME_HRS;
+        break;
         case IS_FULL_TIME:
-            console.log("Employee is Full time")
-            return FULL_TIME_HOURS;
+            return FULL_TIME_HRS;
+            break;
         default:
-           return 0;
+            return 0;
     }
 }
-let empCheck=Math.floor(Math.random()*10) %3;
-empHrs=getWorkingHors(empCheck);
-let empWage=empHrs*WAGE_PER_HOUR;
-console.log("Employee dailyWages :"+empWage);
-
+checkStatus = Math.floor(Math.random() * 10) % 3;
+emphr = GetWorkingHour(checkStatus)
+let empWage = emphr * WAGE_PER_HRS;
+console.log("Employee wage is : "+empWage);
+const WORKING_DAYS_IN_MONTH = 20;
+for(let i = 0; i < WORKING_DAYS_IN_MONTH ; i++)
+{
+    emphr += GetWorkingHour(checkStatus) ;
+}
+empWage = emphr * WAGE_PER_HRS;
+console.log("Total Work Hours :"+emphr+" Total Employee wage for a Month : "+empWage);
